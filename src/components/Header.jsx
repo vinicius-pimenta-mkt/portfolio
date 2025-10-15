@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import logo from '/unv_tech_logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +16,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src={logo} 
+              src="/unv_tech_logo.svg" alt="UNV Tech Logo"
               alt="UNV Tech Logo" 
               className="h-10 w-10 rounded-full"
             />
