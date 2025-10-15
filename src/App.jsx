@@ -44,7 +44,7 @@ function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-8">
               <img 
-                src="/src/assets/unv_tech_logo.png" 
+                src="/unv_tech_logo.png" 
                 alt="UNV Tech Logo" 
                 className="h-32 w-32 mx-auto mb-6 rounded-full shadow-lg"
               />
