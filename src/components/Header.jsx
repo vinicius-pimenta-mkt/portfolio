@@ -16,7 +16,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/unv_tech_logo.svg" alt="UNV Tech Logo"
+              src="/unv_tech_logo.png" alt="UNV Tech Logo"
               alt="UNV Tech Logo" 
               className="h-10 w-10 rounded-full"
             />
