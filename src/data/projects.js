@@ -76,7 +76,9 @@ export const projects = {
         title: 'Relatórios',
         description: 'Análises detalhadas de desempenho e faturamento'
       }
-    ]
+    ],
+    // NOVO CAMPO DE IMAGEM DE CAPA
+    imageCoverSrc: '/images/sistema_dashboard.png' 
   }
 };
 
@@ -91,6 +93,8 @@ export const projectTemplates = {
     longDescription: 'Sistema completo de e-commerce desenvolvido com tecnologias modernas, incluindo catálogo de produtos, carrinho de compras, processamento de pagamentos e automação de vendas via WhatsApp.',
     challenge: 'Criar uma loja virtual moderna que integre vendas online com atendimento personalizado via WhatsApp.',
     solution: 'Desenvolvemos uma plataforma robusta com interface intuitiva e automação completa de vendas e suporte.',
+    liveUrl: '#',
+    credentials: 'Fale Conosco',
     stats: [
       { value: '300%', label: 'Aumento Vendas' },
       { value: '24/7', label: 'Suporte' },
@@ -156,7 +160,9 @@ export const projectTemplates = {
         title: 'Integração WhatsApp',
         description: 'Vendas automatizadas via WhatsApp'
       }
-    ]
+    ],
+    // NOVO CAMPO DE IMAGEM DE CAPA
+    imageCoverSrc: 'https://placehold.co/400x192/4F46E5/FFFFFF?text=E-commerce+Template'
   },
 
   restaurante: {
@@ -168,6 +174,8 @@ export const projectTemplates = {
     longDescription: 'Sistema desenvolvido especificamente para restaurantes, incluindo cardápio digital, sistema de pedidos, integração com delivery e automação completa via WhatsApp.',
     challenge: 'Modernizar o atendimento de restaurantes com sistema de delivery eficiente e automação de pedidos.',
     solution: 'Criamos uma plataforma integrada que conecta cardápio digital, pedidos e entrega com automação WhatsApp.',
+    liveUrl: '#',
+    credentials: 'Fale Conosco',
     stats: [
       { value: '200%', label: 'Mais Pedidos' },
       { value: '15min', label: 'Tempo Médio' },
@@ -233,7 +241,9 @@ export const projectTemplates = {
         title: 'Delivery Tracking',
         description: 'Rastreamento em tempo real das entregas'
       }
-    ]
+    ],
+    // NOVO CAMPO DE IMAGEM DE CAPA
+    imageCoverSrc: 'https://placehold.co/400x192/DC2626/FFFFFF?text=Restaurante+Template'
   },
 
   saude: {
@@ -245,6 +255,8 @@ export const projectTemplates = {
     longDescription: 'Plataforma desenvolvida para profissionais da saúde, incluindo agendamento de consultas, prontuário eletrônico, lembretes automáticos e integração WhatsApp.',
     challenge: 'Digitalizar e automatizar processos de clínicas para melhorar atendimento e reduzir faltas.',
     solution: 'Sistema integrado com automação WhatsApp para lembretes, confirmações e reagendamentos automáticos.',
+    liveUrl: '#',
+    credentials: 'Fale Conosco',
     stats: [
       { value: '80%', label: 'Menos Faltas' },
       { value: '24/7', label: 'Agendamento' },
@@ -310,7 +322,9 @@ export const projectTemplates = {
         title: 'Automação WhatsApp',
         description: 'Comunicação automatizada com pacientes'
       }
-    ]
+    ],
+    // NOVO CAMPO DE IMAGEM DE CAPA
+    imageCoverSrc: 'https://placehold.co/400x192/10B981/FFFFFF?text=Saude+Template'
   }
 };
 
@@ -328,4 +342,3 @@ export const getActiveProjects = () => {
 export const getProjectTemplates = () => {
   return Object.values(projectTemplates);
 };
-
