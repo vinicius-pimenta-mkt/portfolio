@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, ExternalLink, Calendar, Users, BarChart3, MessageSquare, Zap, CheckCircle } from 'lucide-react';
-// Assumindo que 'Button' é um componente válido no seu projeto
-// Se 'Button' não for globalmente acessível, você pode precisar ajustar a importação
-// ou definir o componente aqui se estiver usando um setup de arquivo único.
-// Por clareza, mantive a importação original.
-// import { Button } from './ui/button'; 
+import { ArrowLeft, ExternalLink, Calendar, Users, BarChart3, MessageSquare, Zap, CheckCircle, X } from 'lucide-react';
 
 const Button = (props) => (
   <button {...props} className={`rounded-lg transition-colors duration-200 ${props.className}`}>
@@ -12,9 +7,41 @@ const Button = (props) => (
   </button>
 );
 
+// Componente Modal/Lightbox simples para exibir a imagem em zoom
+const ImageModal = ({ src, alt, onClose }) => {
+  if (!src) return null;
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4 animate-fadeIn"
+      onClick={onClose}
+    >
+      <div 
+        className="relative max-w-5xl w-full max-h-full"
+        onClick={(e) => e.stopPropagation()} // Impede o fechamento ao clicar na imagem
+      >
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2 z-10"
+          aria-label="Fechar"
+        >
+          <X size={24} />
+        </button>
+        <img 
+          src={src} 
+          alt={alt} 
+          className="w-full h-auto max-h-[90vh] object-contain rounded-xl shadow-2xl" 
+        />
+      </div>
+    </div>
+  );
+};
+
 
 const ProjectDetail = ({ onBack }) => {
   const [activeTab, setActiveTab] = useState('overview');
+  // NOVO ESTADO: Armazena a URL da imagem em zoom
+  const [zoomedImage, setZoomedImage] = useState(null);
 
   const features = [
     {
@@ -45,12 +72,20 @@ const ProjectDetail = ({ onBack }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
+      
+      {/* -------------------- NOVO: MODAL/LIGHTBOX -------------------- */}
+      <ImageModal 
+        src={zoomedImage} 
+        alt="Imagem Ampliada do Sistema" 
+        onClose={() => setZoomedImage(null)} 
+      />
+      {/* -------------------------------------------------------------- */}
+
       {/* Header */}
       <div className="bg-white/80 backdrop-blur-md border-b border-amber-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Button
-              // Removido variant="ghost" para compatibilidade com o Button mock
               onClick={onBack}
               className="flex items-center space-x-2 text-amber-700 hover:text-amber-800 bg-transparent shadow-none"
             >
@@ -281,102 +316,73 @@ const ProjectDetail = ({ onBack }) => {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Galeria do Sistema</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* GRUPO DA GALERIA INICIA AQUI */}
-                {/* Dashboard Preview */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Dashboard Principal</h3>
-                  <img src="/images/sistema_dashboard.png" alt="Dashboard do Sistema" 
-                    className="w-full h-auto rounded-lg shadow-md" 
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Visualização do painel de controle com métricas em tempo real
-                  </div>
-                </div>
-
-                {/* Login Screen */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Tela de Login</h3>
-                  <img src="/images/sistema_login.png" alt="Tela de Login" 
-                    className="w-full h-auto rounded-lg shadow-md"
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Interface de autenticação segura e intuitiva
-                  </div>
-                </div>
-
-                {/* Appointments */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Gestão de Agendamentos</h3>
-                  <img src="/images/sistema_agenda.png" alt="Agenda do sistema" 
-                    className="w-full h-auto rounded-lg shadow-md"
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Agenda interativa para controle de horários
-                  </div>
-                </div>
-
-                {/* Reports */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório dos serviços</h3>
-                  <img src="/images/sistema_relatorio_servicos.png" alt="Relatório dos serviços" 
-                    className="w-full h-auto rounded-lg shadow-md" 
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Análises detalhadas dos serviços realizados
-                  </div>
-                </div>
                 
-                {/* Reports Ranking*/}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Ranking dos serviços</h3>
-                  <img src="/images/sistema_ranking_servicos.png" alt="Ranking dos serviços" 
-                    className="w-full h-auto rounded-lg shadow-md" 
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Ranking dos serviços mais realizados
+                {/* FUNÇÃO AUXILIAR PARA RENDERIZAR CADA CARD DA GALERIA
+                  Isto ajuda a aplicar a lógica de cor e o onClick de zoom
+                */}
+                {[{
+                  title: "Dashboard Principal",
+                  src: "/images/sistema_dashboard.png",
+                  alt: "Dashboard do Sistema",
+                  description: "Visualização do painel de controle com métricas em tempo real"
+                }, {
+                  title: "Tela de Login",
+                  src: "/images/sistema_login.png",
+                  alt: "Tela de Login",
+                  description: "Interface de autenticação segura e intuitiva"
+                }, {
+                  title: "Gestão de Agendamentos",
+                  src: "/images/sistema_agenda.png",
+                  alt: "Agenda do sistema",
+                  description: "Agenda interativa para controle de horários"
+                }, {
+                  title: "Relatório dos serviços",
+                  src: "/images/sistema_relatorio_servicos.png",
+                  alt: "Relatório dos serviços",
+                  description: "Análises detalhadas dos serviços realizados"
+                }, {
+                  title: "Ranking dos serviços",
+                  src: "/images/sistema_ranking_servicos.png",
+                  alt: "ranking dos serviços",
+                  description: "Ranking dos serviços realizados"
+                }, {
+                  title: "Relatório de receitas",
+                  src: "/images/sistema_relatorio_receita.png",
+                  alt: "Relatório de receitas",
+                  description: "Análises detalhadas de desempenho e faturamento"
+                }, {
+                  title: "Relatório de clientes",
+                  src: "/images/sistema_relatorio_clientes.png",
+                  alt: "Relatório de clientes",
+                  description: "Relatório e ranking dos clientes"
+                }, {
+                  title: "Dados dos Clientes",
+                  src: "/images/sistema_clientes.png",
+                  alt: "Leads e clientes",
+                  description: "Registro de dados dos clientes"
+                }].map((item, index) => (
+                  <div 
+                    key={index} 
+                    // ALTERADO: Cor de fundo de amarelo para verde claro
+                    className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-8 text-center shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                  >
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">{item.title}</h3>
+                    <div 
+                      className="cursor-pointer overflow-hidden rounded-lg mb-4"
+                      onClick={() => setZoomedImage(item.src)} // AÇÃO DE CLIQUE PARA ABRIR O MODAL
+                    >
+                      <img 
+                        src={item.src} 
+                        alt={item.alt} 
+                        className="w-full h-auto rounded-lg shadow-md transition-opacity duration-300 hover:opacity-90" 
+                        onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                      />
+                    </div>
+                    <div className="text-sm text-gray-600 mt-2">
+                      {item.description}
+                    </div>
                   </div>
-                </div>
-                
-                {/* Reports financeiro */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de receitas</h3>
-                  <img src="/images/sistema_relatorio_receita.png" alt="Relatório de receitas" 
-                    className="w-full h-auto rounded-lg shadow-md" 
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Análises detalhadas de desempenho e faturamento
-                  </div>
-                </div>
-                
-                {/* Reports clients*/}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de clientes</h3>
-                  <img src="/images/sistema_relatorio_clientes.png" alt="Relatório de clientes" 
-                    className="w-full h-auto rounded-lg shadow-md" 
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Relatório e ranking dos clientes
-                  </div>
-                </div>
-                
-                {/* Clients */}
-                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Dados dos Clientes</h3>
-                  <img src="/images/sistema_clientes.png" alt="Leads e clientes" 
-                    className="w-full h-auto rounded-lg shadow-md" 
-                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
-                  />
-                  <div className="text-sm text-gray-600 mt-2">
-                    Registro de dados dos clientes
-                  </div>
-                </div>
-                
+                ))}
               </div> {/* GRUPO DA GALERIA FECHA AQUI */}
 
               <div className="text-center pt-8">
