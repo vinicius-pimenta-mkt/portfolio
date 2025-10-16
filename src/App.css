@@ -6,7 +6,7 @@
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --radius-lg: var( --radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -141,67 +141,52 @@
   z-index: 1; /* Garante que o texto esteja acima do contorno */
   background-color: transparent; /* Garante que o fundo do elemento seja transparente */
   color: var(--foreground); /* Usa a cor de texto responsiva do tema */
-  /* Removendo o background-color sólido da palavra "Tech" que estava causando o preenchimento verde */
   background: none !important; 
 }
 
-.glowing-border-text::before, .glowing-border-text::after {
+/* NOVO: Combina a animação da cor e o efeito de transparência perfeita no ::before */
+.glowing-border-text::before {
   content: "";
   position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%; 
-  border-radius: 10px; /* Bordas arredondadas do contorno */
-  z-index: -1; /* Coloca o contorno atrás do texto */
-}
-
-/* ::before será o GRADIENTE ANIMADO que serve como base da borda */
-.glowing-border-text::before {
-  /* O gradiente animado que define a cor da borda */
-  background: linear-gradient(
-    45deg,
-    #00f, /* Azul */
-    #0f0, /* Verde */
-    #ff0, /* Amarelo */
-    #00f /* Azul (para fechar o ciclo) */
-  );
-  background-size: 400% 400%; /* Para o gradiente se mover */
-  animation: glowingBorderAnimation 8s ease infinite; /* Animação do brilho */
-
-  /* NOVO: Cria a borda vazada usando box-shadow. A expansão é de 3px */
-  box-shadow: 0 0 0 3px transparent, /* Borda transparente para separar do background principal */
-              0 0 0 9999px var(--background) inset; /* O inset "mascara" o preenchimento, deixando só a borda de 3px visível */
-
-  /* Define a espessura da borda a ser animada */
-  padding: 3px; 
-}
-
-/* ::after será o EFEITO DE BRILHO (Blur) */
-.glowing-border-text::after {
-  /* Recebe o mesmo gradiente do ::before */
-  background: linear-gradient(
-    45deg,
-    #00f, 
-    #0f0, 
-    #ff0, 
-    #00f 
-  );
-  background-size: 400% 400%;
-  animation: glowingBorderAnimation 8s ease infinite;
-  
-  filter: blur(10px); /* Adiciona um efeito de desfoque para o brilho */
-  opacity: 0.7; /* Torna o brilho mais suave */
-}
-
-/* Ajusta a posição do after para que ele fique por baixo e mais expandido */
-.glowing-border-text::after {
+  /* Expande o pseudo-elemento para que o glow tenha espaço */
   top: -5px; 
   left: -5px; 
   width: calc(100% + 10px); 
   height: calc(100% + 10px); 
+  border-radius: 10px; 
+  z-index: -1; 
+  
+  /* CRIA O BACKGROUND DE COR ANIMADA (com ciano no lugar do azul) */
+  background: linear-gradient(
+    45deg,
+    #00FFFF, /* CIANO */
+    #0f0,    /* Verde */
+    #ff0,    /* Amarelo */
+    #00FFFF  /* CIANO */
+  );
+  background-size: 400% 400%; 
+  animation: glowingBorderAnimation 8s ease infinite; 
+
+  /* CRIA A BORDA VAZADA PERFEITA COM MASK-COMPOSITE */
+  /* O padding define a espessura da borda (4px) */
+  padding: 4px; 
+  mask: 
+    linear-gradient(#fff 0 0) content-box, /* Máscara que cria o "buraco" */
+    linear-gradient(#fff 0 0);             /* Máscara que define o limite externo */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* Aplica o GLOW/BLUR no contorno externo */
+  filter: drop-shadow(0 0 10px #00FFFF); 
 }
 
+/* REMOVEMOS O ::after */
+.glowing-border-text::after {
+  content: none;
+}
 
 @keyframes glowingBorderAnimation {
   0% { background-position: 0% 50%; }
