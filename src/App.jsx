@@ -3,21 +3,27 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ProjectDetail from './components/ProjectDetail'
 import ProjectTemplate from './components/ProjectTemplate'
+// Importando getProjectById, getActiveProjects, getProjectTemplates
 import { getProjectById, getActiveProjects, getProjectTemplates } from './data/projects'
 import { MessageSquare, Zap, CheckCircle, ArrowRight, Smartphone, Globe, Database } from 'lucide-react'
 import './App.css'
 
 function App() {
+  // A lógica de getActiveProjectsWithImages é desnecessária, pois o imageCoverSrc está agora em data/projects.jsx
+  // Apenas chamamos a função original:
+  // const activeProjects = getActiveProjects(); 
+  
   const [currentView, setCurrentView] = useState('home');
   const [selectedProjectId, setSelectedProjectId] = useState(null);
 
+  // Removendo o alerta, pois é uma prática ruim em apps React
   const handleViewProject = (projectId) => {
     setSelectedProjectId(projectId);
     if (projectId === 'barbearia-sr-mendes') {
       setCurrentView('project-detail');
     } else {
-      // Para templates, mostrar mensagem informativa
-      alert(`Template "${projectId}" - Entre em contato conosco para personalizar este template para seu negócio! WhatsApp: (11) 99999-9999`);
+      // Para templates, usar console.log ou modal customizado (melhor que alert)
+      console.log(`Template "${projectId}" - Entre em contato conosco para personalizar!`);
     }
   };
 
@@ -30,6 +36,7 @@ function App() {
     return <ProjectDetail onBack={handleBackToHome} />;
   }
 
+  // Usando a função original agora que o dado está corrigido na fonte
   const activeProjects = getActiveProjects();
   const templates = getProjectTemplates();
 
@@ -88,13 +95,30 @@ function App() {
               </p>
             </div>
             
-            {/* Active Projects */}
+            {/* Active Projects (COM IMAGEM DE CAPA) */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {activeProjects.map((project) => (
                 <div key={project.id} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                  <div className="h-48 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg mb-4 flex items-center justify-center">
-                    <span className="text-amber-600 font-semibold">{project.title}</span>
+                  
+                  {/* NOVO: Imagem de Capa do Projeto (Substitui o gradiente) */}
+                  <div className="h-48 rounded-lg mb-4 overflow-hidden">
+                    {project.imageCoverSrc ? (
+                      <img 
+                        src={project.imageCoverSrc} // Usando o novo campo
+                        alt={`Capa do Projeto ${project.title}`} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        // Fallback: caso a imagem não carregue, mostra um placeholder
+                        onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x192/CCCCCC/333333?text=IMAGEM+CAPA'; }}
+                      />
+                    ) : (
+                      // Fallback visual se não houver imageCoverSrc
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-200">
+                        <span className="text-amber-600 font-semibold">{project.title}</span>
+                      </div>
+                    )}
                   </div>
+                  {/* FIM DO BLOCO DE IMAGEM */}
+
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {project.title}
                   </h3>
@@ -111,7 +135,7 @@ function App() {
                 </div>
               ))}
 
-              {/* Template Cards */}
+              {/* Template Cards - AGORA COM IMAGEM DE CAPA TAMBÉM */}
               {templates.slice(0, 2).map((template) => {
                 const colorMap = {
                   ecommerce: 'from-blue-100 to-blue-200 text-blue-600',
@@ -123,9 +147,18 @@ function App() {
                 
                 return (
                   <div key={template.id} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                    <div className={`h-48 bg-gradient-to-br ${colors.split(' ')[0]} ${colors.split(' ')[1]} rounded-lg mb-4 flex items-center justify-center`}>
-                      <span className={`${colors.split(' ')[2]} font-semibold`}>{template.title}</span>
+                    
+                    {/* Imagem de Capa do Template */}
+                    <div className="h-48 rounded-lg mb-4 overflow-hidden">
+                      <img 
+                        src={template.imageCoverSrc} 
+                        alt={`Capa do Template ${template.title}`} 
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x192/9CA3AF/FFFFFF?text=TEMPLATE+CAPA'; }}
+                      />
                     </div>
+                    {/* Fim da Imagem de Capa do Template */}
+
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       {template.title}
                     </h3>
