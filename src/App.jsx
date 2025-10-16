@@ -50,7 +50,7 @@ function App() {
               />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              UNV TECH
+              UNV <span className="glowing-border-text">Tech</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Soluções Tecnológicas e Automações
