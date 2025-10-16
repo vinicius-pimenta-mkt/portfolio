@@ -283,7 +283,7 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Login Screen */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Tela de Login</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/sistema_login.png" alt="Tela de Login" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Interface de autenticação segura e intuitiva
                     </div>
@@ -293,7 +293,7 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Appointments */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Gestão de Agendamentos</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/sistema_agenda.png" alt="Agenda do sistema" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Agenda interativa para controle de horários
                     </div>
@@ -303,7 +303,7 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Reports */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório dos serviços</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/sistema_relatório_serviços" alt="Relatório dos serviços" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Análises detalhadas dos serviços realizado
                     </div>
@@ -313,7 +313,7 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Reports financeiro */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de receitas</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/sistema_relatório_receita" alt="Relatório de receitas" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Análises detalhadas de desempenho e faturamento
                     </div>
@@ -323,7 +323,7 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Reports clients*/}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de clientes</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/sistema_relatório_clientes" alt="Relatório de clientes" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Relatório e ranking dos clientes
                     </div>
@@ -333,7 +333,7 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Clients */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Dados dos Clientes</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/sistema_clientes" alt="Leads e clientes" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Registro de dados dos clientes
                     </div>
