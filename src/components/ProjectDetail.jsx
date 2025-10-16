@@ -295,17 +295,47 @@ const ProjectDetail = ({ onBack }) => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Gestão de Agendamentos</h3>
                   <div className="bg-white rounded-lg p-4 shadow-sm">
                     <div className="text-sm text-gray-600">
-                      Calendário interativo para controle de horários
+                      Agenda interativo para controle de horários
                     </div>
                   </div>
                 </div>
 
                 {/* Reports */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatórios</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório dos serviços</h3>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div className="text-sm text-gray-600">
+                      Análises detalhadas dos serviços realizado
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Reports financeiro */}
+                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de receitas</h3>
                   <div className="bg-white rounded-lg p-4 shadow-sm">
                     <div className="text-sm text-gray-600">
                       Análises detalhadas de desempenho e faturamento
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Reports clients*/}
+                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de clientes</h3>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div className="text-sm text-gray-600">
+                      Relatório e ranking dos clientes
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Clients */}
+                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Dados dos Clientes</h3>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div className="text-sm text-gray-600">
+                      Registro de dados dos clientes
                     </div>
                   </div>
                 </div>
