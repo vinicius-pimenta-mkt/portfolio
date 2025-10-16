@@ -284,7 +284,6 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Dashboard Preview */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Dashboard Principal</h3>
-                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
                   <img src="/images/sistema_dashboard.png" alt="Dashboard do Sistema" 
                     className="w-full h-auto rounded-lg shadow-md" 
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
@@ -297,7 +296,6 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Login Screen */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Tela de Login</h3>
-                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
                   <img src="/images/sistema_login.png" alt="Tela de Login" 
                     className="w-full h-auto rounded-lg shadow-md"
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
@@ -310,7 +308,6 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Appointments */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Gestão de Agendamentos</h3>
-                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
                   <img src="/images/sistema_agenda.png" alt="Agenda do sistema" 
                     className="w-full h-auto rounded-lg shadow-md"
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
@@ -323,20 +320,30 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Reports */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório dos serviços</h3>
-                  {/* ERRO DE CAMINHO: Corrigido e adicionado .png (assumindo png) */}
                   <img src="/images/sistema_relatorio_servicos.png" alt="Relatório dos serviços" 
                     className="w-full h-auto rounded-lg shadow-md" 
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
                   />
                   <div className="text-sm text-gray-600 mt-2">
-                    Análises detalhadas dos serviços realizado
+                    Análises detalhadas dos serviços realizados
+                  </div>
+                </div>
+                
+                {/* Reports Ranking*/}
+                <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Ranking dos serviços</h3>
+                  <img src="/images/sistema_ranking_servicos.png" alt="Ranking dos serviços" 
+                    className="w-full h-auto rounded-lg shadow-md" 
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Ranking dos serviços mais realizados
                   </div>
                 </div>
                 
                 {/* Reports financeiro */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de receitas</h3>
-                  {/* ERRO DE CAMINHO: Corrigido e adicionado .png (assumindo png) */}
                   <img src="/images/sistema_relatorio_receita.png" alt="Relatório de receitas" 
                     className="w-full h-auto rounded-lg shadow-md" 
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
@@ -349,7 +356,6 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Reports clients*/}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de clientes</h3>
-                  {/* ERRO DE CAMINHO: Corrigido e adicionado .png (assumindo png) */}
                   <img src="/images/sistema_relatorio_clientes.png" alt="Relatório de clientes" 
                     className="w-full h-auto rounded-lg shadow-md" 
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
@@ -362,7 +368,6 @@ const ProjectDetail = ({ onBack }) => {
                 {/* Clients */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Dados dos Clientes</h3>
-                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
                   <img src="/images/sistema_clientes.png" alt="Leads e clientes" 
                     className="w-full h-auto rounded-lg shadow-md" 
                     onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
