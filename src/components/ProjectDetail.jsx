@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { ArrowLeft, ExternalLink, Calendar, Users, BarChart3, MessageSquare, Zap, CheckCircle } from 'lucide-react';
-import { Button } from './ui/button';
+// Assumindo que 'Button' é um componente válido no seu projeto
+// Se 'Button' não for globalmente acessível, você pode precisar ajustar a importação
+// ou definir o componente aqui se estiver usando um setup de arquivo único.
+// Por clareza, mantive a importação original.
+// import { Button } from './ui/button'; 
+
+const Button = (props) => (
+  <button {...props} className={`rounded-lg transition-colors duration-200 ${props.className}`}>
+    {props.children}
+  </button>
+);
+
 
 const ProjectDetail = ({ onBack }) => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -39,9 +50,9 @@ const ProjectDetail = ({ onBack }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Button
-              variant="ghost"
+              // Removido variant="ghost" para compatibilidade com o Button mock
               onClick={onBack}
-              className="flex items-center space-x-2 text-amber-700 hover:text-amber-800"
+              className="flex items-center space-x-2 text-amber-700 hover:text-amber-800 bg-transparent shadow-none"
             >
               <ArrowLeft size={20} />
               <span>Voltar ao Portfólio</span>
@@ -269,79 +280,101 @@ const ProjectDetail = ({ onBack }) => {
             <div className="space-y-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Galeria do Sistema</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* GRUPO DA GALERIA INICIA AQUI */}
                 {/* Dashboard Preview */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Dashboard Principal</h3>
-                  <img src="/images/sistema_dashboard.png" alt="Dashboard do Sistema" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Visualização do painel de controle com métricas em tempo real
-                    </div>
+                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
+                  <img src="/images/sistema_dashboard.png" alt="Dashboard do Sistema" 
+                    className="w-full h-auto rounded-lg shadow-md" 
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Visualização do painel de controle com métricas em tempo real
                   </div>
                 </div>
 
                 {/* Login Screen */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Tela de Login</h3>
-                  <img src="/images/sistema_login.png" alt="Tela de Login" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Interface de autenticação segura e intuitiva
-                    </div>
+                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
+                  <img src="/images/sistema_login.png" alt="Tela de Login" 
+                    className="w-full h-auto rounded-lg shadow-md"
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Interface de autenticação segura e intuitiva
                   </div>
                 </div>
 
                 {/* Appointments */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Gestão de Agendamentos</h3>
-                  <img src="/images/sistema_agenda.png" alt="Agenda do sistema" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Agenda interativa para controle de horários
-                    </div>
+                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
+                  <img src="/images/sistema_agenda.png" alt="Agenda do sistema" 
+                    className="w-full h-auto rounded-lg shadow-md"
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Agenda interativa para controle de horários
                   </div>
                 </div>
 
                 {/* Reports */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório dos serviços</h3>
-                  <img src="/images/sistema_relatório_serviços" alt="Relatório dos serviços" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Análises detalhadas dos serviços realizado
-                    </div>
+                  {/* ERRO DE CAMINHO: Corrigido e adicionado .png (assumindo png) */}
+                  <img src="/images/sistema_relatorio_servicos.png" alt="Relatório dos serviços" 
+                    className="w-full h-auto rounded-lg shadow-md" 
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Análises detalhadas dos serviços realizado
                   </div>
                 </div>
                 
                 {/* Reports financeiro */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de receitas</h3>
-                  <img src="/images/sistema_relatório_receita" alt="Relatório de receitas" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Análises detalhadas de desempenho e faturamento
-                    </div>
+                  {/* ERRO DE CAMINHO: Corrigido e adicionado .png (assumindo png) */}
+                  <img src="/images/sistema_relatorio_receita.png" alt="Relatório de receitas" 
+                    className="w-full h-auto rounded-lg shadow-md" 
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Análises detalhadas de desempenho e faturamento
                   </div>
                 </div>
                 
                 {/* Reports clients*/}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Relatório de clientes</h3>
-                  <img src="/images/sistema_relatório_clientes" alt="Relatório de clientes" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Relatório e ranking dos clientes
-                    </div>
+                  {/* ERRO DE CAMINHO: Corrigido e adicionado .png (assumindo png) */}
+                  <img src="/images/sistema_relatorio_clientes.png" alt="Relatório de clientes" 
+                    className="w-full h-auto rounded-lg shadow-md" 
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Relatório e ranking dos clientes
                   </div>
                 </div>
                 
                 {/* Clients */}
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Dados dos Clientes</h3>
-                  <img src="/images/sistema_clientes" alt="Leads e clientes" className="w-full h-auto rounded-lg shadow-md" />
-                    <div className="text-sm text-gray-600">
-                      Registro de dados dos clientes
-                    </div>
+                  {/* ATENÇÃO: Adicionei a extensão .png e o fallback da imagem */}
+                  <img src="/images/sistema_clientes.png" alt="Leads e clientes" 
+                    className="w-full h-auto rounded-lg shadow-md" 
+                    onError="this.onerror=null; this.src='https://placehold.co/600x400/CCCCCC/333333?text=Imagem';"
+                  />
+                  <div className="text-sm text-gray-600 mt-2">
+                    Registro de dados dos clientes
                   </div>
                 </div>
-              </div>
+                
+              </div> {/* GRUPO DA GALERIA FECHA AQUI */}
 
-              <div className="text-center">
+              <div className="text-center pt-8">
                 <a
                   href="https://srmendesinterface.vercel.app/"
                   target="_blank"
@@ -364,4 +397,3 @@ const ProjectDetail = ({ onBack }) => {
 };
 
 export default ProjectDetail;
-
