@@ -343,7 +343,7 @@ const ProjectDetail = ({ onBack }) => {
                 }, {
                   title: "Ranking dos serviços",
                   src: "/images/sistema_ranking_servicos.png",
-                  alt: "ranking dos serviços",
+                  alt: "Ranking dos serviços",
                   description: "Ranking dos serviços realizados"
                 }, {
                   title: "Relatório de receitas",
