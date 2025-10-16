@@ -46,11 +46,11 @@ function App() {
               <img 
                 src="/unv_tech_logo.png" 
                 alt="UNV Tech Logo" 
-                className="h-32 w-32 mx-auto mb-6 rounded-full shadow-lg"
+                className="h-40 w-40 mx-auto mb-6 rounded-full shadow-lg"
               />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              UNV Tech
+              UNV TECH
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Soluções Tecnológicas e Automações
@@ -147,7 +147,7 @@ function App() {
             {/* Ver Mais Templates */}
             <div className="text-center">
               <p className="text-gray-600 mb-4">
-                Temos templates para diversos segmentos: E-commerce, Restaurantes, Clínicas, Educação e muito mais.
+                Automações para diversos segmentos: E-commerce, Restaurantes, Clínicas, Advocacia e muito mais.
               </p>
               <button 
                 onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
