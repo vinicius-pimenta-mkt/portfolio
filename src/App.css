@@ -136,7 +136,7 @@
 .glowing-border-text {
   position: relative;
   display: inline-block; /* Essencial para posicionar os pseudo-elementos */
-  padding: 0.2em 0.3em; /* Espaçamento interno */
+  padding: 0.1em 0.2em; /* Espaçamento interno */
   border-radius: 8px; /* Bordas arredondadas */
   z-index: 1; /* Garante que o texto esteja acima do contorno */
   background-color: transparent; /* Garante que o fundo do elemento seja transparente */
