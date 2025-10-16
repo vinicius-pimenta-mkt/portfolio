@@ -139,11 +139,12 @@
   padding: 0.2em 0.4em; /* Espaçamento para o contorno aparecer */
   border-radius: 8px; /* Bordas arredondadas para o contorno */
   z-index: 1; /* Garante que o texto esteja acima do contorno */
-  color: #1f2937; /* Cor do texto (pode ser a mesma do h1 ou contrastante) */
+  /* Removido o background-color: var(--background); para garantir transparência no centro */
+  color: var(--foreground); /* Usa a cor de texto responsiva do tema */
 }
 
 .glowing-border-text::before, .glowing-border-text::after {
-  content: ""; /* CORREÇÃO APLICADA AQUI: Adicionado o fechamento das aspas para a string vazia */
+  content: "";
   position: absolute;
   top: -2px; /* Ajuste para a espessura do contorno */
   left: -2px; /* Ajuste para a espessura do contorno */
@@ -160,6 +161,12 @@
   border-radius: 10px; /* Bordas arredondadas do contorno */
   z-index: -1; /* Coloca o contorno atrás do texto */
   animation: glowingBorderAnimation 8s ease infinite; /* Animação do brilho */
+}
+
+/* NOVO: Aplica uma sombra interna (inset) gigante no ::before para mascarar o preenchimento,
+   deixando apenas a borda do gradiente visível. */
+.glowing-border-text::before {
+  box-shadow: 0 0 0 9999px var(--background) inset;
 }
 
 .glowing-border-text::after {
