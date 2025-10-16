@@ -21,7 +21,7 @@ const Header = () => {
               className="h-10 w-10 rounded-full"
             />
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-gray-900">UNV Tech</span>
+              <span className="text-lg font-bold text-gray-900">UNV TECH</span>
               <span className="text-xs text-gray-600 hidden sm:block">Soluções Tecnológicas</span>
             </div>
           </div>
