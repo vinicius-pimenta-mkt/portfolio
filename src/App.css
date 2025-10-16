@@ -143,7 +143,7 @@
 }
 
 .glowing-border-text::before, .glowing-border-text::after {
-  content: ";
+  content: ""; /* CORREÇÃO APLICADA AQUI: Adicionado o fechamento das aspas para a string vazia */
   position: absolute;
   top: -2px; /* Ajuste para a espessura do contorno */
   left: -2px; /* Ajuste para a espessura do contorno */
