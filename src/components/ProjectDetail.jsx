@@ -274,6 +274,7 @@ const ProjectDetail = ({ onBack }) => {
                 <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg p-8 text-center">
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Dashboard Principal</h3>
                   <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <img src="/images/sistema-dashboard.png" alt="Dashboard do Sistema" className="w-full h-auto rounded-lg shadow-md" />
                     <div className="text-sm text-gray-600">
                       Visualização do painel de controle com métricas em tempo real
                     </div>
@@ -295,7 +296,7 @@ const ProjectDetail = ({ onBack }) => {
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Gestão de Agendamentos</h3>
                   <div className="bg-white rounded-lg p-4 shadow-sm">
                     <div className="text-sm text-gray-600">
-                      Agenda interativo para controle de horários
+                      Agenda interativa para controle de horários
                     </div>
                   </div>
                 </div>
