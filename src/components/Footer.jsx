@@ -15,7 +15,7 @@ const Footer = () => {
                 className="h-10 w-10 rounded-full"
               />
               <div>
-                <h3 className="text-xl font-bold">UNV Tech</h3>
+                <h3 className="text-xl font-bold">UNV TECH</h3>
                 <p className="text-gray-400 text-sm">Soluções Tecnológicas e Automações</p>
               </div>
             </div>
@@ -72,16 +72,16 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2">
                 <Mail size={16} className="text-green-400" />
-                <span className="text-gray-300 text-sm">contato@unvtech.com</span>
+                <span className="text-gray-300 text-sm">contato@unvgroup.tech</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} className="text-green-400" />
-                <span className="text-gray-300 text-sm">(11) 99999-9999</span>
+                <span className="text-gray-300 text-sm">(28) 99963-5004</span>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin size={16} className="text-green-400 mt-0.5" />
                 <span className="text-gray-300 text-sm">
-                  São Paulo, SP<br />
+                  Belo Horizonte, MG<br />
                   Brasil
                 </span>
               </li>
