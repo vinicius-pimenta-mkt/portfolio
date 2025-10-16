@@ -152,7 +152,7 @@
   left: 0;
   width: 100%; 
   height: 100%; 
-  border-radius: 10px; /* Bordas arredondadas do contorno */
+  border-radius: 13px; /* Bordas arredondadas do contorno */
   z-index: -1; /* Coloca o contorno atrás do texto */
 }
 
